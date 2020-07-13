@@ -1,7 +1,4 @@
 <div id="main">
-  <ng-container>
-    <ng-container [ngTemplateOutlet]="toolbar"></ng-container>
-  </ng-container>
 
   <div id="container-1" class="container">
     <ng-container>
@@ -9,13 +6,25 @@
     </ng-container>
 
     <div id="container-2" class="container">
-      <content></content>
+
+      <ng-container>
+        <ng-container [ngTemplateOutlet]="toolbar"></ng-container>
+      </ng-container>
+
+      <div id="container-3" class="container">
+
+        <content></content>
+
+      </div>
+
+      <ng-container>
+        <ng-container [ngTemplateOutlet]="footer"></ng-container>
+      </ng-container>
+
     </div>
+
   </div>
 
-  <ng-container>
-    <ng-container [ngTemplateOutlet]="footer"></ng-container>
-  </ng-container>
 </div>
 
 <ng-template #toolbar>
@@ -23,10 +32,11 @@
 </ng-template>
 
 <ng-template #navbar>
-  <navbar></navbar>
+  <sidebar name="navbar" class="navbar-sidebar">
+    <navbar></navbar>
+  </sidebar>
 </ng-template>
 
 <ng-template #footer>
-  <p>footer</p>
-  <!-- <footer></footer> -->
+  <footer></footer>
 </ng-template>
